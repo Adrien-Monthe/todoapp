@@ -15,6 +15,7 @@ app.use(cors({
     credentials: true
 }));
 app.use(express.json());
+app.use(limiter);
 
 app.use('/api/auth', userRoutes);
 app.use('/api/tasks', authenticate, taskRoutes);
