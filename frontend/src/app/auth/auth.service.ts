@@ -25,6 +25,10 @@ export class AuthService {
     return window.sessionStorage.getItem(TOKEN_KEY);
   }
 
+  isLoggedIn(): boolean {
+    return !!this.getToken();
+  }
+
   signOut(): void {
     window.sessionStorage.clear();
     this.router.navigate(['/login'])
