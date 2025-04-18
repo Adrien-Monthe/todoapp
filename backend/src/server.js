@@ -8,7 +8,12 @@ const authenticate = require('./middleware/auth');
 dotenv.config();
 const app = express();
 
-app.use(cors());
+const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',').map(origin => origin.trim());
+
+app.use(cors({
+    origin: allowedOrigins,
+    credentials: true
+}));
 app.use(express.json());
 
 app.use('/api/auth', userRoutes);
