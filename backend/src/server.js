@@ -5,6 +5,7 @@ const sequelize = require('./config/database');
 const userRoutes = require('./user/routes/userRoutes');
 const taskRoutes = require('./task/routes/taskRoutes');
 const authenticate = require('./middleware/auth');
+const limiter = require('./middleware/limiter');
 dotenv.config();
 const app = express();
 
